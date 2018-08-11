@@ -20,6 +20,7 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.MapsInitializer;
 import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.LatLngBounds;
@@ -72,47 +73,63 @@ public class MapViewFragment extends Fragment implements GoogleApiClient.OnConne
                 mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
 
                 //SHOES
-                LatLng loc1 = new LatLng(Double.parseDouble("40.744843"), Double.parseDouble("-73.992050"));
-                mMap.addMarker(new MarkerOptions().position(loc1).title("100 W 26th St, New York, NY 10001"));
-                LatLng loc2 = new LatLng(Double.parseDouble("40.751526"), Double.parseDouble("-73.998235"));
-                mMap.addMarker(new MarkerOptions().position(loc2).title("365 9th Ave, New York, NY 10001"));
-                LatLng loc3 = new LatLng(Double.parseDouble("40.751592"), Double.parseDouble("-73.991978"));
-                mMap.addMarker(new MarkerOptions().position(loc3).title("Penn Plaza 250 W 34Th St &, 8th Avenue, New York, NY 10119"));
-                LatLng loc4 = new LatLng(Double.parseDouble("40.749384"), Double.parseDouble("-73.986318"));
-                mMap.addMarker(new MarkerOptions().position(loc4).title("27 W 34th St, New York, NY 10001"));
-                LatLng loc5 = new LatLng(Double.parseDouble("40.749843"), Double.parseDouble("-73.988535"));
-                mMap.addMarker(new MarkerOptions().position(loc5).title("110 W 34th St, New York, NY 10001"));
-                LatLng loc6 = new LatLng(Double.parseDouble("40.740028"), Double.parseDouble("-73.991310"));
-                mMap.addMarker(new MarkerOptions().position(loc6).title("156 5th Ave, New York, NY 10010"));
-                LatLng loc7 = new LatLng(Double.parseDouble("40.723373"), Double.parseDouble("-73.999118"));
-                mMap.addMarker(new MarkerOptions().position(loc7).title("529 Broadway, New York, NY 10012"));
+                if(couponBrand.equals("nike")) {
+                    LatLng loc1 = new LatLng(Double.parseDouble("40.744843"), Double.parseDouble("-73.992050"));
+                    mMap.addMarker(new MarkerOptions().position(loc1).title("100 W 26th St, New York, NY 10001"));
+                    LatLng loc2 = new LatLng(Double.parseDouble("40.751526"), Double.parseDouble("-73.998235"));
+                    mMap.addMarker(new MarkerOptions().position(loc2).title("365 9th Ave, New York, NY 10001"));
+                    LatLng loc3 = new LatLng(Double.parseDouble("40.751592"), Double.parseDouble("-73.991978"));
+                    mMap.addMarker(new MarkerOptions().position(loc3).title("Penn Plaza 250 W 34Th St &, 8th Avenue, New York, NY 10119"));
+                    LatLng loc4 = new LatLng(Double.parseDouble("40.749384"), Double.parseDouble("-73.986318"));
+                    mMap.addMarker(new MarkerOptions().position(loc4).title("27 W 34th St, New York, NY 10001"));
+                    LatLng loc5 = new LatLng(Double.parseDouble("40.749843"), Double.parseDouble("-73.988535"));
+                    mMap.addMarker(new MarkerOptions().position(loc5).title("110 W 34th St, New York, NY 10001"));
+                    LatLng loc6 = new LatLng(Double.parseDouble("40.740028"), Double.parseDouble("-73.991310"));
+                    mMap.addMarker(new MarkerOptions().position(loc6).title("156 5th Ave, New York, NY 10010"));
+                    LatLng loc7 = new LatLng(Double.parseDouble("40.723373"), Double.parseDouble("-73.999118"));
+                    mMap.addMarker(new MarkerOptions().position(loc7).title("529 Broadway, New York, NY 10012"));
+                }
 
                 //TIDE
-                LatLng tide1 = new LatLng(Double.parseDouble("40.714328"), Double.parseDouble("-74.010914"));
-                mMap.addMarker(new MarkerOptions().position(tide1).title("255 Greenwich St, New York, NY 10007"));
-                LatLng tide2 = new LatLng(Double.parseDouble("40.814138"), Double.parseDouble("-73.983026"));
-                mMap.addMarker(new MarkerOptions().position(tide2).title("543 River Rd, Edgewater, NJ 07020"));
-                LatLng tide3 = new LatLng(Double.parseDouble("40.795386"), Double.parseDouble("-73.931022"));
-                mMap.addMarker(new MarkerOptions().position(tide3).title("517 E 117th St #201, New York, NY 10035"));
-                LatLng tide4 = new LatLng(Double.parseDouble("40.747564"), Double.parseDouble("-74.004719"));
-                mMap.addMarker(new MarkerOptions().position(tide4).title("500 W 23rd St, New York, NY 10011"));
-                LatLng tide5 = new LatLng(Double.parseDouble("40.759498"), Double.parseDouble("-73.995855"));
-                mMap.addMarker(new MarkerOptions().position(tide5).title( "500 W 42nd St, New York, NY 10036"));
-                LatLng tide6 = new LatLng(Double.parseDouble("40.743727"), Double.parseDouble("-73.991812"));
-                mMap.addMarker(new MarkerOptions().position(tide6).title("750 6th Ave, New York, NY 10010"));
+                if(couponBrand.equals("tide")) {
+                    LatLng tide1 = new LatLng(Double.parseDouble("40.714328"), Double.parseDouble("-74.010914"));
+                    mMap.addMarker(new MarkerOptions().position(tide1).title("255 Greenwich St, New York, NY 10007"));
+                    LatLng tide2 = new LatLng(Double.parseDouble("40.814138"), Double.parseDouble("-73.983026"));
+                    mMap.addMarker(new MarkerOptions().position(tide2).title("543 River Rd, Edgewater, NJ 07020"));
+                    LatLng tide3 = new LatLng(Double.parseDouble("40.795386"), Double.parseDouble("-73.931022"));
+                    mMap.addMarker(new MarkerOptions().position(tide3).title("517 E 117th St #201, New York, NY 10035"));
+                    LatLng tide4 = new LatLng(Double.parseDouble("40.747564"), Double.parseDouble("-74.004719"));
+                    mMap.addMarker(new MarkerOptions().position(tide4).title("500 W 23rd St, New York, NY 10011"));
+                    LatLng tide5 = new LatLng(Double.parseDouble("40.759498"), Double.parseDouble("-73.995855"));
+                    mMap.addMarker(new MarkerOptions().position(tide5).title("500 W 42nd St, New York, NY 10036"));
+                    LatLng tide6 = new LatLng(Double.parseDouble("40.743727"), Double.parseDouble("-73.991812"));
+                    mMap.addMarker(new MarkerOptions().position(tide6).title("750 6th Ave, New York, NY 10010"));
+                }
 
-                Subways
-//                40.754469, -73.998500
-//                40.753387, -73.995835
-//                40.751389, -73.993056
-//                40.746044, -73.993874
-//                41.046263, -73.862627
-//                40.753085, -73.986768
-//                40.748782, -73.986811
-//                40.754951, -73.981891
-
+//                Subways
+                if(couponBrand.equals("subway")) {
+                    LatLng subway1 = new LatLng(Double.parseDouble("40.754469"), Double.parseDouble("-73.998500"));
+                    mMap.addMarker(new MarkerOptions().position(subway1).title("455 W 34th Street"));
+                    LatLng subway2 = new LatLng(Double.parseDouble("40.753387"), Double.parseDouble("-73.995835"));
+                    mMap.addMarker(new MarkerOptions().position(subway2).title("367 W 34th Street"));
+                    LatLng subway3 = new LatLng(Double.parseDouble("40.751389"), Double.parseDouble("-73.993056"));
+                    mMap.addMarker(new MarkerOptions().position(subway3).title("One Penn Plaza"));
+                    LatLng subway4 = new LatLng(Double.parseDouble("40.746044"), Double.parseDouble("-73.993874"));
+                    mMap.addMarker(new MarkerOptions().position(subway4).title("175 W 26th Street"));
+                    LatLng subway5 = new LatLng(Double.parseDouble("41.046263"), Double.parseDouble("-73.862627"));
+                    mMap.addMarker(new MarkerOptions().position(subway5).title("111 Broadway"));
+                    LatLng subway6 = new LatLng(Double.parseDouble("40.753085"), Double.parseDouble("-73.986768"));
+                    mMap.addMarker(new MarkerOptions().position(subway6).title("1400 Broadway #103-105"));
+                    LatLng subway7 = new LatLng(Double.parseDouble("40.748782"), Double.parseDouble("-73.986811"));
+                    mMap.addMarker(new MarkerOptions().position(subway7).title("35 W 33rd Street"));
+                    LatLng subway8 = new LatLng(Double.parseDouble("40.754951"), Double.parseDouble("73.981891"));
+                    mMap.addMarker(new MarkerOptions().position(subway8).title("31 W 43rd Street"));
+                }
 
                 LatLng socialCenter = new LatLng(Double.parseDouble("40.751653"), Double.parseDouble("-74.007152"));
+                mMap.addMarker(new MarkerOptions().position(socialCenter)
+                        .icon(BitmapDescriptorFactory
+                                .defaultMarker(BitmapDescriptorFactory.HUE_AZURE)));
                 moveToCurrentLocation(socialCenter);
 
 //                "40.740028,-73.991310" || "40.723373", "-73.999118"
