@@ -33,6 +33,7 @@ public class VisionActivity extends AppCompatActivity {
     TextView textView;
     CameraSource cameraSource;
     final int RequestCameraPermissionID = 1001;
+    private boolean switchingActivities;
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
@@ -61,6 +62,11 @@ public class VisionActivity extends AppCompatActivity {
 
         cameraView = (SurfaceView) findViewById(R.id.surface_view);
         textView = (TextView) findViewById(R.id.text_view);
+
+        switchingActivities = false;
+
+//        Intent myIntent = new Intent(getApplicationContext(), test_activity.class);
+//        startActivityForResult(myIntent, 2);
 
         TextRecognizer textRecognizer = new TextRecognizer.Builder(getApplicationContext()).build();
 
@@ -128,22 +134,35 @@ public class VisionActivity extends AppCompatActivity {
                                     stringBuilder.append("\n");
                                 }
 
-                                String shit = stringBuilder.toString().toLowerCase();
-                                shit = shit.replaceAll("[\\s]", "");
+                                String strB = stringBuilder.toString().toLowerCase();
+                                strB = strB.replaceAll("[\\s]", "");
 
-                                Log.i("tag", "CURRENT STRINGBUILDER: "+shit);
-                                Log.i("tag", "COMPARING TO: burgerking");
+                                if(!switchingActivities) {
+                                    if (strB.equals("nike")) {
+                                        Intent myIntent = new Intent(getApplicationContext(), test_activity.class);
+                                        myIntent.putExtra("coupon_brand", "nike");
+                                        startActivityForResult(myIntent, 104);
 
-                                if(shit.equals("burgerking")){
-                                    for(int i =0;i < 100;i++)
-                                        Log.i("tag", "comparison true");
+                                        showMessage("Loading Nike Locations via Google Maps");
+                                        switchingActivities = true;
+                                    } else if (strB.equals("tide")) {
+                                        Intent myIntent = new Intent(getApplicationContext(), test_activity.class);
+                                        myIntent.putExtra("coupon_brand", "tide");
+                                        startActivityForResult(myIntent, 105);
 
-                                    Intent myIntent = new Intent(getApplicationContext(), BurgerKingActivity.class);
-                                    startActivityForResult(myIntent, 3);
+                                        showMessage("Loading Tide Locations via Google Maps");
+                                        switchingActivities = true;
+                                    } else if (strB.equals("subway")) {
+                                        Intent myIntent = new Intent(getApplicationContext(), test_activity.class);
+                                        myIntent.putExtra("coupon_brand", "subway");
+                                        startActivityForResult(myIntent, 106);
 
-                                }else{
-                                    Log.i("tag", "THE FOLLOWING NOT EQUIV: burgerking != "+shit);
+                                        showMessage("Loading Subway Locations via Google Maps");
+                                        switchingActivities = true;
+                                    }
                                 }
+
+
 
                                 textView.setText(stringBuilder.toString());
                             }

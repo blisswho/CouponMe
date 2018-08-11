@@ -53,15 +53,15 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
 
-        Intent myIntent = new Intent(getApplicationContext(), VisionActivity.class);
-        startActivityForResult(myIntent, 2);
+//        Intent myIntent = new Intent(getApplicationContext(), VisionActivity.class);
+//        startActivityForResult(myIntent, 2);
 
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
-//        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
-//                .findFragmentById(R.id.map);
-//        mapFragment.getMapAsync(this);
-//
-//        mGeoDataClient = Places.getGeoDataClient(getApplicationContext());
+        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
+                .findFragmentById(R.id.map);
+        mapFragment.getMapAsync(this);
+
+        mGeoDataClient = Places.getGeoDataClient(getApplicationContext());
     }
 
     /**
@@ -79,8 +79,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         mMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
         // Add a marker in Sydney and move the camera
-//        LatLng sydney = new LatLng(-34, 151);
-//        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
+        LatLng sydney = new LatLng(-34, 151);
+        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
 
         final LatLng home = getLocationFromAddress(getApplicationContext(), "10 Emmet Ct.");
         mMap.addMarker(new MarkerOptions().position(home).title("Marker at home"));
@@ -116,7 +116,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 //                        .setTypeFilter(AutocompleteFilter.TYPE_FILTER_ADDRESS)
                         .build();
 
-                new ResultBuffer("burger king", new2Bounds, typeFilter, mGeoDataClient, listener).execute();
+//                new ResultBuffer("burger king", new2Bounds, typeFilter, mGeoDataClient, listener).execute();
             }
         });
 
