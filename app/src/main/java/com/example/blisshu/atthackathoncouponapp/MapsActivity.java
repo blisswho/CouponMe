@@ -1,6 +1,7 @@
 package com.example.blisshu.atthackathoncouponapp;
 
 import android.content.Context;
+import android.content.Intent;
 import android.location.Address;
 import android.location.Geocoder;
 import android.support.annotation.NonNull;
@@ -51,13 +52,16 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
+
+        Intent myIntent = new Intent(getApplicationContext(), VisionActivity.class);
+        startActivityForResult(myIntent, 2);
+
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
-        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
-                .findFragmentById(R.id.map);
-        mapFragment.getMapAsync(this);
-
-        mGeoDataClient = Places.getGeoDataClient(getApplicationContext());
-
+//        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
+//                .findFragmentById(R.id.map);
+//        mapFragment.getMapAsync(this);
+//
+//        mGeoDataClient = Places.getGeoDataClient(getApplicationContext());
     }
 
     /**
