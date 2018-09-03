@@ -8,7 +8,7 @@ import android.widget.TextView;
 
 import com.google.android.gms.flags.impl.DataUtils;
 
-public class test_activity extends AppCompatActivity {
+public class MapActivity extends AppCompatActivity {
     Toolbar mActionBarToolbar;
 
     @Override
@@ -26,11 +26,11 @@ public class test_activity extends AppCompatActivity {
         getSupportActionBar().setTitle("See stores near you!");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        MapViewFragment shit = new MapViewFragment();
-        shit.setArguments(bundle);
+        MapViewFragment fragment = new MapViewFragment();
+        fragment.setArguments(bundle);
 
         final FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.fragContainer, shit);
+        transaction.replace(R.id.fragContainer, fragment);
         transaction.addToBackStack(null);
         transaction.commit();
 

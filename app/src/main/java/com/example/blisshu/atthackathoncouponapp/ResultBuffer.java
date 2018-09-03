@@ -60,10 +60,10 @@ public class ResultBuffer extends AsyncTask<Void, Void, Void>{
             Log.i("tag", "passed freezing/closing autocompletePredictions");
 
             for(int i = 0;i < res.size();i++){
-                AutocompletePrediction shit = res.get(i);
-                Log.i("tag", "FULL TEXT OF LOC: "+shit.getFullText(null).toString());
-                Log.i("tag", "PRIMARY: "+shit.getPrimaryText(null).toString());
-                Log.i("tag", "SECOND: "+shit.getSecondaryText(null).toString());
+                AutocompletePrediction autoprediction = res.get(i);
+                Log.i("tag", "FULL TEXT OF LOC: "+autoprediction.getFullText(null).toString());
+                Log.i("tag", "PRIMARY: "+autoprediction.getPrimaryText(null).toString());
+                Log.i("tag", "SECOND: "+autoprediction.getSecondaryText(null).toString());
             }
 
             return null;

@@ -3,7 +3,6 @@ package com.example.blisshu.atthackathoncouponapp;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.graphics.Camera;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
@@ -15,8 +14,6 @@ import android.view.SurfaceView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.gms.location.places.Places;
-import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.vision.CameraSource;
 import com.google.android.gms.vision.Detector;
 import com.google.android.gms.vision.text.TextBlock;
@@ -65,7 +62,7 @@ public class VisionActivity extends AppCompatActivity {
 
         switchingActivities = false;
 
-//        Intent myIntent = new Intent(getApplicationContext(), test_activity.class);
+//        Intent myIntent = new Intent(getApplicationContext(), MapActivity.class);
 //        startActivityForResult(myIntent, 2);
 
         TextRecognizer textRecognizer = new TextRecognizer.Builder(getApplicationContext()).build();
@@ -139,21 +136,22 @@ public class VisionActivity extends AppCompatActivity {
 
                                 if(!switchingActivities) {
                                     if (strB.equals("nike")) {
-                                        Intent myIntent = new Intent(getApplicationContext(), test_activity.class);
+                                        Intent myIntent = new Intent(getApplicationContext(), MapActivity.class);
                                         myIntent.putExtra("coupon_brand", "nike");
                                         startActivityForResult(myIntent, 104);
 
                                         showMessage("Loading Nike Locations via Google Maps");
                                         switchingActivities = true;
+
                                     } else if (strB.equals("tide")) {
-                                        Intent myIntent = new Intent(getApplicationContext(), test_activity.class);
+                                        Intent myIntent = new Intent(getApplicationContext(), MapActivity.class);
                                         myIntent.putExtra("coupon_brand", "tide");
                                         startActivityForResult(myIntent, 105);
 
                                         showMessage("Loading Tide Locations via Google Maps");
                                         switchingActivities = true;
                                     } else if (strB.equals("subway")) {
-                                        Intent myIntent = new Intent(getApplicationContext(), test_activity.class);
+                                        Intent myIntent = new Intent(getApplicationContext(), MapActivity.class);
                                         myIntent.putExtra("coupon_brand", "subway");
                                         startActivityForResult(myIntent, 106);
 

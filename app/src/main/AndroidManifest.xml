@@ -34,14 +34,7 @@
             android:value="@string/google_maps_key" />
 
         <activity
-            android:name=".MapsActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.DEFAULT"/>
-            </intent-filter>
-        </activity>
-
-        <activity
-            android:name=".test_activity">
+            android:name=".MapActivity">
             <intent-filter>
                 <action android:name="android.intent.action.DEFAULT"/>
             </intent-filter>
